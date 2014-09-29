@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script src="http://maps.googleapis.com/maps/api/js?key=<WE  NEED TO GET ONE OF THESE>&sensor=false">
+<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCmGwt526Lyy8H9FowN8bqfeyiK2k7MSYQ&sensor=false">
 </script>
 
 <script>
 function initialize()
 {
 var mapProp = {
-  center:new google.maps.LatLng(51.508742,-0.120850),
-  zoom:5,
+  center:new google.maps.LatLng(40.0176,-105.2797),
+  zoom:13,
   mapTypeId:google.maps.MapTypeId.ROADMAP
   };
 var map=new google.maps.Map(document.getElementById("googleMap")
@@ -18,10 +18,18 @@ var map=new google.maps.Map(document.getElementById("googleMap")
 
 google.maps.event.addDomListener(window, 'load', initialize);
 </script>
+
+<style type="text/css">
+  html { height: 100% }
+  body { height: 100%; margin: 0; padding: 0 }
+  #googleMap { height: 100% }
+</style>
+
 </head>
 
 <body>
-<div id="googleMap" style="width:500px;height:380px;"></div>
+
+<div id="googleMap"></div>
 
 </body>
 </html>
