@@ -44,10 +44,21 @@ function initialize() {
     map.setCenter(options.position);
   }
   
-  // Use Inu logo as link to home state
-  
-  //google.maps.event.addDomListener(document.getElementById('navbar-brand'), 'click', function () {map.setCenter(initMapOptions.center); map.setZoom(initMapOptions.zoom);});
+  // FUNC001: display search bar and tie to database
+
+  // Create the search box and link it to the UI element.
+  var input = document.getElementById('pac-input');
+  map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+  var searchBox = new google.maps.places.SearchBox(input);
+
+  // Bias the SearchBox results towards places that are within the bounds of the current map's viewport.
+  google.maps.event.addListener(map, 'bounds_changed', function() {
+    var bounds = map.getBounds();
+    searchBox.setBounds(bounds);
+  });
 }
+
+// NONF001: return map center and zoom to inital values (should be a FUNC requirement, but left for consistency with GitHub)
 
 function loadWithInitOpts() {
   map.setCenter(initOpts.center);
