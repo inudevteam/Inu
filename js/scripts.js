@@ -1,8 +1,12 @@
+// Global Variables
+
 var map;
 var initOpts = {
     center: { lat: 40.006711, lng: -105.263623},
     zoom: 15
   };
+
+// Called on site intial load
 
 function initialize() {
   map = new google.maps.Map(document.getElementById('map-canvas'), initOpts);
