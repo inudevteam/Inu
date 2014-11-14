@@ -6,7 +6,9 @@ var initOpts = {
 
 function initialize() {
   map = new google.maps.Map(document.getElementById('map-canvas'), initOpts);
-
+ 
+  // Pre-function requirement: find user's location using HTML5 and handle error
+  
   // Try HTML5 geolocation
   if(navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
