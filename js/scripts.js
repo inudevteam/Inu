@@ -1,12 +1,11 @@
 var map;
-
-function initialize() {
-  var mapOptions = {
+var initOpts = {
     center: { lat: 40.006711, lng: -105.263623},
     zoom: 15
   };
-  map = new google.maps.Map(document.getElementById('map-canvas'),
-      mapOptions);
+
+function initialize() {
+  map = new google.maps.Map(document.getElementById('map-canvas'), initOpts);
 
   // Try HTML5 geolocation
   if(navigator.geolocation) {
@@ -28,21 +27,31 @@ function initialize() {
     // Browser doesn't support Geolocation
     handleNoGeolocation(false);
   }
+  
+  // Handle HTML5 Geolocation failure
+  function handleNoGeolocation(errorFlag) {
+    if (errorFlag) {
+      var content = 'Error: The Geolocation service failed.';
+    } else {
+      var content = 'Error: Your browser doesn\'t support geolocation.';
+    }
+    var options = {
+      map: map,
+      position: new google.maps.LatLng(40.006711,-105.263623),
+      content: content
+    };
+    var infowindow = new google.maps.InfoWindow(options);
+    map.setCenter(options.position);
+  }
+  
+  // Use Inu logo as link to home state
+  
+  //google.maps.event.addDomListener(document.getElementById('navbar-brand'), 'click', function () {map.setCenter(initMapOptions.center); map.setZoom(initMapOptions.zoom);});
 }
 
-function handleNoGeolocation(errorFlag) {
-  if (errorFlag) {
-    var content = 'Error: The Geolocation service failed.';
-  } else {
-    var content = 'Error: Your browser doesn\'t support geolocation.';
-  }
-  var options = {
-    map: map,
-    position: new google.maps.LatLng(40.006711,-105.263623),
-    content: content
-  };
-  var infowindow = new google.maps.InfoWindow(options);
-  map.setCenter(options.position);
+function loadWithInitOpts() {
+  map.setCenter(initOpts.center);
+  map.setZoom(initOpts.zoom);
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
