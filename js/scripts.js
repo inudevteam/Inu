@@ -3,7 +3,8 @@
 var map;
 var initOpts = {
     center: { lat: 40.006711, lng: -105.263623},
-    zoom: 15
+    zoom: 15,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
   };
 
 // Called on site intial load
@@ -50,7 +51,7 @@ function initialize() {
     map.setCenter(options.position);
   }
   
-  // FUNC001: display search bar and tie to database
+  // USER001: display search bar and tie to database
 
   // Create the search box and link it to the UI element.
   var input = document.getElementById('pac-input');
@@ -64,11 +65,12 @@ function initialize() {
   });
 }
 
-// NONF001: return map center and zoom to inital values (should be a FUNC requirement, but left for consistency with GitHub)
+// FUNC001: return map center and zoom to inital values (should be a FUNC requirement, but left for consistency with GitHub)
 
 function loadWithInitOpts() {
   map.setCenter(initOpts.center);
   map.setZoom(initOpts.zoom);
+  map.setMapTypeId(initOpts.mapTypeId);
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
