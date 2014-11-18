@@ -65,12 +65,14 @@ function initialize() {
   });
 }
 
-// FUNC001: return map center and zoom to inital values (should be a FUNC requirement, but left for consistency with GitHub)
+// FUNC001: return map center and zoom to inital values
 
 function loadWithInitOpts() {
   map.setCenter(initOpts.center);
   map.setZoom(initOpts.zoom);
   map.setMapTypeId(initOpts.mapTypeId);
 }
+
+// Run initialize scripts on site load
 
 google.maps.event.addDomListener(window, 'load', initialize);
