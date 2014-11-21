@@ -5,6 +5,14 @@ html {
     width: 100%;
     margin: 0; 
     padding: 0;
+    
+    /* USER002: Prevent user from scrolling between full-page sections */
+    
+    overflow: hidden;
+    
+    /* USER002: Fix scrolling on mobile devices */
+    
+    position: relative;
 }
 body {
     height: 100%;
