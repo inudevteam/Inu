@@ -15,6 +15,11 @@ body {
     /* USER002: Prevent user from scrolling between full-page sections */
     
     overflow: hidden;
+    
+    /* USER002: Fix scrolling on mobile devices */
+    
+    position: fixed;
+    
 }
 
 /* Google Components */
