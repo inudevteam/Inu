@@ -6,11 +6,20 @@ html {
     margin: 0; 
     padding: 0;
 }
+
 body {
     height: 100%;
     width: 100%;
     margin: 0;
     padding: 0;
+    
+    /* USER002: Prevent user from scrolling between full-page sections */
+    
+    overflow: hidden;
+    
+    /* USER002: Fix scrolling on mobile devices */
+    
+    position: fixed;
 }
 
 /* Google Components */
@@ -56,14 +65,18 @@ body {
 #map {
     height: 100%;
     padding-top: 50px;
+    position: fixed;
 }
 
 #blog {
     height: 100%;
     padding-top: 50px;
+    position: fixed;
+
 }
 
 #about {
     height: 100%;
     padding-top: 50px;
+    position: fixed;
 }
