@@ -3,11 +3,7 @@
 git checkout master
 git checkout user002
 git add -A
-git commit
+git commit -m '$1'
 git checkout master
-git merge user002
+git merge user002 -m '$1'
 git push
-ssh ubuntu@128.138.242.224
-cd /var/www/html
-sudo git pull
-exit
