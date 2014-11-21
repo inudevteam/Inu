@@ -65,18 +65,15 @@ body {
 #map {
     height: 100%;
     padding-top: 50px;
-    position: fixed;
 }
 
 #blog {
     height: 100%;
     padding-top: 50px;
-    position: fixed;
 
 }
 
 #about {
     height: 100%;
     padding-top: 50px;
-    position: fixed;
 }
