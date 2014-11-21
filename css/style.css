@@ -12,7 +12,7 @@ html {
     
     /* USER002: Fix scrolling on mobile devices */
     
-    position: relative;
+    position: fixed;
 }
 body {
     height: 100%;
