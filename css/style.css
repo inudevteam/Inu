@@ -18,7 +18,7 @@ body {
     
     /* USER002: Fix scrolling on mobile devices */
     
-    position: fixed;
+    position: relative;
 }
 
 /* Google Components */
