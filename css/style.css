@@ -19,7 +19,7 @@ body {
     
     /* USER002: Fix scrolling on mobile devices */
     
-    position: fixed;
+    position: relative;
 }
 
 /* Google Components */
@@ -70,7 +70,6 @@ body {
 #blog {
     height: 100%;
     padding-top: 50px;
-
 }
 
 #about {
