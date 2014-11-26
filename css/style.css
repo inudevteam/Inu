@@ -62,7 +62,9 @@ body {
 
 /* FUNC002: Monopage sections */
 
-#map-section {
+#map {
+    height: 100%;
+    padding-top: 50px;
 }
 
 #blog {
