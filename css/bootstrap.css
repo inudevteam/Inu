@@ -1409,8 +1409,8 @@ pre code {
   }
 }
 .container-fluid {
-  padding-right: 24px;
-  padding-left: 15px;
+  padding-right: 0px;
+  padding-left: 16px;
   margin-right: auto;
   margin-left: auto;
 }
