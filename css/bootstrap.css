@@ -244,6 +244,7 @@ th {
   }
   .navbar {
     display: none;
+    -webkit-backface-visibility: hidden;
   }
   .btn > .caret,
   .dropup > .btn > .caret {
