@@ -1,5 +1,5 @@
 <?php
-$username="christina";
-$password="123";
+$username="inumod";
+$password="Inu123456";
 $database="inu";
 ?>

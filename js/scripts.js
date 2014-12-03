@@ -1,12 +1,24 @@
 // Global Variables
 
-//Custom markers based on data types
+//Custom markers based on data types - FUNC006
 var customIcons = {
     park: {
-    icon: 'http://labs.google.com/ridefinder/images/mm_20_blue.png'
+    icon: '../img/park.png'
       },
-    friendly: {
-    icon: 'http://labs.google.com/ridefinder/images/mm_20_red.png'
+    restaurant: {
+    icon: '../img/restaurant.png'
+      },
+    trail: {
+    icon: '../img/trail.png'
+      },
+store: {
+    icon: '../img/store.png'
+      },
+    vet: {
+    icon: '../img/vet.png'
+      },
+    hotel: {
+    icon: '../img/hotel.png'
       }
     };
 
