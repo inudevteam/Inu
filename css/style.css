@@ -18,8 +18,6 @@ body {
     overflow: hidden;
     
     /* USER002: Fix scrolling on mobile devices */
-    
-    position: relative;
 }
 
 /* Google Components */
