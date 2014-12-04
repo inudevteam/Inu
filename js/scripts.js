@@ -3,24 +3,31 @@
 //Custom markers based on data types - FUNC006
 var customIcons = {
     park: {
-    icon: '../img/park.png'
+    icon: '../img/park.png',
+    name: 'Dog Parks'
       },
     restaurant: {
-    icon: '../img/restaurant.png'
+    icon: '../img/restaurant.png',
+    name: 'Restaurants'
       },
     trail: {
-    icon: '../img/trail.png'
+    icon: '../img/trail.png',
+    name: 'Trails'
       },
 store: {
-    icon: '../img/store.png'
+    icon: '../img/store.png',
+    name: 'Stores'
       },
     vet: {
-    icon: '../img/vet.png'
+    icon: '../img/vet.png',
+    name: 'Veterinarians'
       },
     hotel: {
-    icon: '../img/hotel.png'
+    icon: '../img/hotel.png',
+    name: 'Hotels'
       }
     };
+
 
 var map;
 var initOpts = {
@@ -58,6 +65,23 @@ function initialize() {
           bindInfoWindow(places, map, infoWindow, html);
         }
       });
+    
+    // FUNC006: Add legend
+var legend = document.getElementById('legend');
+for (var key in customIcons) {
+  var type = customIcons[key];
+  var name = type.name;
+  var icon = type.icon;
+  var div = document.createElement('div');
+  div.innerHTML = '<img src="' + icon + '"> ' + name;
+  /*var div2 = document.createElement('div');
+div.innerHTML = '<img src="../img/myloc.png">' + 'You are here';
+legend.appendChild(div2);*/
+  legend.appendChild(div);
+}
+
+map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(
+  document.getElementById('legend'));
  
   // Pre-function requirement: find user's location using HTML5 and handle error
   
@@ -150,6 +174,7 @@ function loadWithInitOpts() {
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
+
 
 // FUNC002: Animate scrolling between sections
 
