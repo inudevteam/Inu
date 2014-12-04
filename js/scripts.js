@@ -55,7 +55,7 @@ function initialize() {
           var point = new google.maps.LatLng(
               parseFloat(markers[i].getAttribute("lat")),
               parseFloat(markers[i].getAttribute("lng")));
-          var html = "<b>" + name + "</b> <br/>" + address;
+          var html = "<b>" + name + "</b><br/>" + address;
           var icon = customIcons[type] || {};
           var places = new google.maps.Marker({
             map: map,
@@ -138,6 +138,7 @@ map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(
   });
 
 }
+
 
 // create infowindow from xml and html 
 function bindInfoWindow(marker, map, infoWindow, html) {
