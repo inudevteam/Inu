@@ -1,2 +1,14 @@
-frontend
+Inu - Man and His Best Friend, Together
+A public resource of dog friendly areas in Boulder, Colorado
+
+http://www.memorygain.info
+
 ========
+
+Authors: Matthew Thompson, Christina Matteis, Anna Yudina, Joe Cosenza
+
+Repository environment consists of all source code for the website, database schema, auto-doc documents, and unit test cases.  Branches are setup to reflect specific requirements outlined in our tracking software, Trello.  Team members work on their designated branch and merge with the master branch once their code is ready.
+
+How to use this repository: All files should be uploaded to a webserver except auto-doc documents, unit test cases and database setup information.  Database setup is described below.  
+
+How to run the code: Ensure PHP and mySQL are installed on your desired webserver.  Use the database schema provided in the 'db' file to create your database.  Once the files are uploaded to a webserver and the database is setup, the website should run. 

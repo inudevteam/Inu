@@ -44,7 +44,7 @@ body {
 #pac-input {
     background-color: #fff;
     padding: 0 11px 0 13px;
-    width: 400px;
+    width: 250px;
     font-family: Roboto;
     font-size: 15px;
     font-weight: 300;
@@ -55,8 +55,24 @@ body {
     border-color: #4d90fe;
     margin-left:-1px;
     padding-left: 14px;  /* Regular padding-left + 1. */
-    width: 401px;
+    width: 250px;
 }
+
+#btnSubmit {
+    width:50px;
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 300;
+    margin-top: 19px;
+    border: 1px solid transparent;
+    border-radius: 2px 0 0 2px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    height: 32px;
+    outline: none;
+
+}
+
 
 /* FUNC002: Monopage sections */
 
@@ -68,11 +84,13 @@ body {
 #blog {
     height: 100%;
     padding-top: 50px;
+    overflow:scroll;
 }
 
 #about {
     height: 100%;
     padding-top: 50px;
+    overflow:scroll;
 }
 
 #legend{
