@@ -1,12 +1,10 @@
-<span style="font-size:14pt;font-weight:bold;">Inu - Man and His Best Friend, Together</span><br/>
+<b>Inu - Man and His Best Friend, Together</b><br/>
 A public resource of dog friendly areas in Boulder, Colorado<br/>
 
 <b>Website is live at:</b> http://www.memorygain.info
-
 ========
 
 <b>Authors:</b> Matthew Thompson, Christina Matteis, Anna Yudina, Joe Cosenza
-
 ========
 
 Repository environment consists of all source code for the website, database schema, auto-doc documents, and unit test cases.  Branches are setup to reflect specific requirements outlined in our tracking software, Trello.  Team members work on their designated branch and merge with the master branch once their code is ready.
