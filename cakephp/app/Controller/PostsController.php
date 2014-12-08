@@ -5,6 +5,7 @@ class PostsController extends AppController {
 	
 	public function index(){
 		$this->set ('posts', $this->Post->find('all'));
+	}
 		// this is the edit function 
 	public function edit($id = null) {
     if (!$id) {
