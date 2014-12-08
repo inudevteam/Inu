@@ -136,6 +136,8 @@ map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(
     var bounds = map.getBounds();
     searchBox.setBounds(bounds);
   });
+    
+
 
 }
 
