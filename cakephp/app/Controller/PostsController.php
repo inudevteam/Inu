@@ -39,6 +39,6 @@ class PostsController extends AppController {
 		if (!$this->request->data) {
 		    $this->request->data = $post;
 		}
-		}
+	    }
 	}
 	
