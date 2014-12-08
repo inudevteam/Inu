@@ -6,6 +6,19 @@ class PostsController extends AppController {
 	public function index(){
 		$this->set ('posts', $this->Post->find('all'));
 	}
+	public function view($id = null){
+		if (!$id){
+			throw new NotFoundException(__('Invalid post'));
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 		// this is the edit function 
 	public function edit($id = null) {
     if (!$id) {
