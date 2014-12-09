@@ -1,46 +1,60 @@
-<?php 
-
+<?php
 class PostsController extends AppController {
-	public $helpers = array ('Html', 'Form');
-	
-	public function index(){
-		$this->set ('posts', $this->Post->find('all'));
-		// this is the edit function 
-	public function edit($id = null) {
-    if (!$id) {
-        throw new NotFoundException(__('Invalid post'));
+    var $name = 'Posts';
+
+    function index() {
+        $this->Post->recursive = 0;
+        $this->set('posts', $this->paginate());
     }
 
-    $post = $this->Post->findById($id);
-    if (!$post) {
-        throw new NotFoundException(__('Invalid post'));
-    }
-
-    if ($this->request->is(array('post', 'put'))) {
-        $this->Post->id = $id;
-        if ($this->Post->save($this->request->data)) {
-            $this->Session->setFlash(__('Your post has been updated.'));
-            return $this->redirect(array('action' => 'index'));
+    function view($id = null) {
+        if (!$id) {
+            $this->Session->setFlash(sprintf(__('Invalid %s', true), 'post'));
+            $this->redirect(array('action' => 'index'));
         }
-        $this->Session->setFlash(__('Unable to update your post.'));
+        $this->set('post', $this->Post->read(null, $id));
     }
 
-    if (!$this->request->data) {
-        $this->request->data = $post;
-    }
-}
-		// this is the delete function 
-	public function delete($id) {
-    if ($this->request->is('get')) {
-        throw new MethodNotAllowedException();
+    function add() {
+        if (!empty($this->data)) {
+            $this->Post->create();
+            if ($this->Post->save($this->data)) {
+                $this->Session->setFlash(sprintf(__('The %s has been saved', true), 'post'));
+                $this->redirect(array('action' => 'index'));
+            } else {
+                $this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), 'post'));
+            }
+        }
     }
 
-    if ($this->Post->delete($id)) {
-        $this->Session->setFlash(
-            __('The post with id: %s has been deleted.', h($id))
-        );
-        return $this->redirect(array('action' => 'index'));
+    function edit($id = null) {
+        if (!$id && empty($this->data)) {
+            $this->Session->setFlash(sprintf(__('Invalid %s', true), 'post'));
+            $this->redirect(array('action' => 'index'));
+        }
+        if (!empty($this->data)) {
+            if ($this->Post->save($this->data)) {
+                $this->Session->setFlash(sprintf(__('The %s has been saved', true), 'post'));
+                $this->redirect(array('action' => 'index'));
+            } else {
+                $this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), 'post'));
+            }
+        }
+        if (empty($this->data)) {
+            $this->data = $this->Post->read(null, $id);
+        }
     }
-}
-	}
+
+    function delete($id = null) {
+        if (!$id) {
+            $this->Session->setFlash(sprintf(__('Invalid id for %s', true), 'post'));
+            $this->redirect(array('action'=>'index'));
+        }
+        if ($this->Post->delete($id)) {
+            $this->Session->setFlash(sprintf(__('%s deleted', true), 'Post'));
+            $this->redirect(array('action'=>'index'));
+        }
+        $this->Session->setFlash(sprintf(__('%s was not deleted', true), 'Post'));
+        $this->redirect(array('action' => 'index'));
+    }
 }
