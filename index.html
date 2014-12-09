@@ -37,13 +37,15 @@
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false" aria-controls="navbar">
           <span class="sr-only">Toggle navigation</span>
         </button>
-        <a class="navbar-brand page-scroll" href="#page-top" onclick="loadWithInitOpts()"><img src="assett/icon.png"></a>
+        <a class="navbar-brand page-scroll" href="#page-top" onclick="loadWithInitOpts()">
+          <img src="assett/icon.png">
+        </a>
       </div>
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
           <li data-toggle="collapse" data-target=".navbar-collapse"><a class="page-scroll" href="#map">Home</a>
           </li>
-          <li data-toggle="collapse" data-target=".navbar-collapse"><a class="page-scroll" href="#blog">Blog</a>
+          <li data-toggle="collapse" data-target=".navbar-collapse"><a class="page-scroll" href="http://memorygain.info/cakephp/Posts">Blog</a>
           </li>
           <li data-toggle="collapse" data-target=".navbar-collapse"><a class="page-scroll" href="#about">About</a>
           </li>
@@ -67,22 +69,21 @@
   <!-- FUNC002: Begin content sections-->
 
   <!-- Map section -->
-  
+
   <section id="map" class="map-section">
     <div id="map-canvas"></div>
-            
 
     <!-- FUNC001: Search Bar -->
-        <input id="pac-input" class="controls"          type="text" placeholder="Search Box (under construction)">
-      
+    <input id="pac-input" class="controls" type="text" placeholder="Search Box (under construction)">
+
     <!--FUNC006: Legend-->
-      
-      <div id="legend">
-         <h3>Legend</h3>
-      </div>
-      
+
+    <div id="legend">
+      <h3>Legend</h3>
+    </div>
+
   </section>
-  
+
   <!-- Blog Section -->
 
   <section id="blog" class="blog-section">
@@ -91,33 +92,31 @@
         <div class="col-lg-12">
           <h1>Blog Section</h1>
           <table>
-    <tr>
-        <th>Id</th>
-        <th>Title</th>
-        <th>Created</th>
-    </tr>
+            <tr>
+              <th>Id</th>
+              <th>Title</th>
+              <th>Created</th>
+            </tr>
 
-    <!-- Here is where we loop through our $posts array, printing out post info -->
+            <!-- Here is where we loop through our $posts array, printing out post info -->
 
-    <?php foreach ($posts as $post): ?>
-    <tr>
-        <td><?php echo $post['Post']['id']; ?></td>
-        <td>
-            <?php echo $this->Html->link($post['Post']['title'],
-array('controller' => 'posts', 'action' => 'view', $post['Post']['id'])); ?>
-        </td>
-        <td><?php echo $post['Post']['created']; ?></td>
-    </tr>
-    <?php endforeach; ?>
-    <?php unset($post); ?>
-    <h1>Add Post</h1>
-<?php
-echo $this->Form->create('Post');
-echo $this->Form->input('title');
-echo $this->Form->input('body', array('rows' => '3'));
-echo $this->Form->end('Save Post');
-?>
-</table>
+            <?php foreach ($posts as $post): ?>
+            <tr>
+              <td>
+                <?php echo $post[ 'Post'][ 'id']; ?>
+              </td>
+              <td>
+                <?php echo $this->Html->link($post['Post']['title'], array('controller' => 'posts', 'action' => 'view', $post['Post']['id'])); ?>
+              </td>
+              <td>
+                <?php echo $post[ 'Post'][ 'created']; ?>
+              </td>
+            </tr>
+            <?php endforeach; ?>
+            <?php unset($post); ?>
+            <h1>Add Post</h1>
+            <?php echo $this->Form->create('Post'); echo $this->Form->input('title'); echo $this->Form->input('body', array('rows' => '3')); echo $this->Form->end('Save Post'); ?>
+          </table>
         </div>
       </div>
     </div>
@@ -129,32 +128,46 @@ echo $this->Form->end('Save Post');
     <div class="container-fluid">
       <div class="row">
         <div class="col-lg-12">
-            <!--USER009: Provide explanation of services-->
+          <!--USER009: Provide explanation of services-->
           <h1>A little about us</h1>
-            <div style="float:left;">
-                <img style="padding-right:15px;" src="img/dogrunning.jpg" alt="Inu" />
-            </div>
-            <div style="padding-right:10px;"><p>Inu is a service that provides a public resource of dog friendly areas and increases social interactions among dogs and their owners. We know how important it is to include your furry friend in your daily activities, so our team is continuously working to update locations that are dog friendly.  <br/><br/>Please be patient as our website is currently under construction and updates to release status can be found on our <a href="#blog">blog</a>.<br/><br/></p>
+          <div style="float:left;">
+            <img style="padding-right:15px;" src="img/dogrunning.jpg" alt="Inu" />
+          </div>
+          <div style="padding-right:10px;">
+            <p>Inu is a service that provides a public resource of dog friendly areas and increases social interactions among dogs and their owners. We know how important it is to include your furry friend in your daily activities, so our team is continuously working to update locations that are dog friendly.
+              <br/>
+              <br/>Please be patient as our website is currently under construction and updates to release status can be found on our <a href="#blog">blog</a>.
+              <br/>
+              <br/>
+            </p>
 
             <h4>Overview of service:</h4>
 
-<p>Our initial release will feature dog-friendly open spaces, trails, restaurants, hotels, parks, and other public spaces in the Boulder, Colorado area. We hope to expand our services to include all of Colorado in the future. <br/><br/>
-    For our next release, we will incorporate customizable user accounts that allow users to post pictures, rate locations, and comment on blog posts.  Later updates will add new and improved features!
-</p>
-            </div>
-            <div style="clear:both;"></div>
-            <div>
-                <h3>Brief Tutorial</h3>
-                <p>For best results, allow our website to track your location.  Your location is displayed by the <img src="img/myloc.png" alt="My Location" /> icon.</p>
-                <ul>
-                <li><img src="img/park.png" alt="Dog park"/> Dog parks: These include both off and on-leash parks.</li>
-                <li><img src="img/hotel.png" alt="Dog friendly hotel"/> Hotels: These include hotels where dogs may stay with you in a room.</li>
-                <li><img src="img/store.png" alt="Dog friendly business"/> Stores: Businesses that will allow your dog to occumpany you inside.</li>
-                <li><img src="img/restaurant.png" alt="Dog friendly restaurant"/> Restaurants: These locations allow dogs on patios.</li>
-                <li><img src="img/vet.png" alt="Veterinarian"/> Veterinarian offices</li>
-                <li><img src="img/trail.png" alt="Dog friendly trails"/> Dog friendly trails: These include both on-leash and green tag areas.</li>
-                </ul>
-            </div>
+            <p>Our initial release will feature dog-friendly open spaces, trails, restaurants, hotels, parks, and other public spaces in the Boulder, Colorado area. We hope to expand our services to include all of Colorado in the future.
+              <br/>
+              <br/>For our next release, we will incorporate customizable user accounts that allow users to post pictures, rate locations, and comment on blog posts. Later updates will add new and improved features!
+            </p>
+          </div>
+          <div style="clear:both;"></div>
+          <div>
+            <h3>Brief Tutorial</h3>
+            <p>For best results, allow our website to track your location. Your location is displayed by the
+              <img src="img/myloc.png" alt="My Location" />icon.</p>
+            <ul>
+              <li>
+                <img src="img/park.png" alt="Dog park" />Dog parks: These include both off and on-leash parks.</li>
+              <li>
+                <img src="img/hotel.png" alt="Dog friendly hotel" />Hotels: These include hotels where dogs may stay with you in a room.</li>
+              <li>
+                <img src="img/store.png" alt="Dog friendly business" />Stores: Businesses that will allow your dog to occumpany you inside.</li>
+              <li>
+                <img src="img/restaurant.png" alt="Dog friendly restaurant" />Restaurants: These locations allow dogs on patios.</li>
+              <li>
+                <img src="img/vet.png" alt="Veterinarian" />Veterinarian offices</li>
+              <li>
+                <img src="img/trail.png" alt="Dog friendly trails" />Dog friendly trails: These include both on-leash and green tag areas.</li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
