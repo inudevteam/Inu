@@ -10,8 +10,8 @@ Repository environment consists of all source code for the website, database sch
 
 <b>How to use this repository:</b> All files should be uploaded to a webserver except auto-doc documents, unit test cases and database setup information.  Database setup is described below.  
 
-<b>How to run the code:</b> 
--Ensure PHP and mySQL are installed on your desired webserver.  
--Use the database schema provided in the 'db' file to create your database.  
--Edit php/dbconfig.php to match your database credentials.  
--Once the files are uploaded to a webserver and the database is setup, the website should run. 
+<b>How to run the code:</b> <br/>
+- Ensure PHP and mySQL are installed on your desired webserver.  
+- Use the database schema provided in the 'db' file to create your database.  
+- Edit php/dbconfig.php to match your database credentials.  
+- Once the files are uploaded to a webserver and the database is setup, the website should run. 
