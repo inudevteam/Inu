@@ -1,0 +1,73 @@
+\hypertarget{maps_x_m_l_8php}{}\section{/\+Users/\+Bruce/\+Documents/\+Computer Science/\+Inu/php/maps\+X\+M\+L.php File Reference}
+\label{maps_x_m_l_8php}\index{/\+Users/\+Bruce/\+Documents/\+Computer Science/\+Inu/php/maps\+X\+M\+L.\+php@{/\+Users/\+Bruce/\+Documents/\+Computer Science/\+Inu/php/maps\+X\+M\+L.\+php}}
+
+
+Connects to database and creates X\+M\+L file to render map markers.  
+
+
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{maps_x_m_l_8php_aa4f830cf26f0fa9084374e6eec2cfc90}{parse\+To\+X\+M\+L} (\$html\+Str)
+\begin{DoxyCompactList}\small\item\em Helper function that correctly encodes special characters for proper X\+M\+L parsing. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{maps_x_m_l_8php_a0d9c79b9b86b3f5891c6d3892f12c6a0}{}\hyperlink{maps_x_m_l_8php_a0d9c79b9b86b3f5891c6d3892f12c6a0}{\$connection} =mysql\+\_\+connect (localhost, \$username, \$password)\label{maps_x_m_l_8php_a0d9c79b9b86b3f5891c6d3892f12c6a0}
+
+\begin{DoxyCompactList}\small\item\em Opens a connection to a my\+S\+Q\+L server. \end{DoxyCompactList}\item 
+\hypertarget{maps_x_m_l_8php_a7ac53254461d08cd7a48196f2131e8a8}{}if(!\$connection) \hyperlink{maps_x_m_l_8php_a7ac53254461d08cd7a48196f2131e8a8}{\$db\+\_\+selected} = mysql\+\_\+select\+\_\+db(\$database, \$connection)\label{maps_x_m_l_8php_a7ac53254461d08cd7a48196f2131e8a8}
+
+\begin{DoxyCompactList}\small\item\em Set the active my\+S\+Q\+L database. \end{DoxyCompactList}\item 
+\hypertarget{maps_x_m_l_8php_a1a35e6d436c822738b4f732ffcc233c6}{}if(!\$db\+\_\+selected) \hyperlink{maps_x_m_l_8php_a1a35e6d436c822738b4f732ffcc233c6}{\$query} = \char`\"{}S\+E\+L\+E\+C\+T $\ast$ F\+R\+O\+M markers W\+H\+E\+R\+E 1\char`\"{}\label{maps_x_m_l_8php_a1a35e6d436c822738b4f732ffcc233c6}
+
+\begin{DoxyCompactList}\small\item\em Select all the rows in the markers table. \end{DoxyCompactList}\item 
+\hypertarget{maps_x_m_l_8php_a112ef069ddc0454086e3d1e6d8d55d07}{}{\bfseries \$result} = mysql\+\_\+query(\$query)\label{maps_x_m_l_8php_a112ef069ddc0454086e3d1e6d8d55d07}
+
+\item 
+\hyperlink{maps_x_m_l_8php_a896b241ebd6b7f381e7919ff0d1eb8fd}{while} (\$row=@mysql\+\_\+fetch\+\_\+assoc(\$result))
+\begin{DoxyCompactList}\small\item\em Start X\+M\+L file, echo parent node. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Connects to database and creates X\+M\+L file to render map markers. 
+
+Inu -\/ \hyperlink{maps_x_m_l_8php}{maps\+X\+M\+L.\+php} \begin{DoxyAuthor}{Author}
+Inu\+Dev\+Team 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+12/8/14 
+\end{DoxyDate}
+
+
+\subsection{Function Documentation}
+\hypertarget{maps_x_m_l_8php_aa4f830cf26f0fa9084374e6eec2cfc90}{}\index{maps\+X\+M\+L.\+php@{maps\+X\+M\+L.\+php}!parse\+To\+X\+M\+L@{parse\+To\+X\+M\+L}}
+\index{parse\+To\+X\+M\+L@{parse\+To\+X\+M\+L}!maps\+X\+M\+L.\+php@{maps\+X\+M\+L.\+php}}
+\subsubsection[{parse\+To\+X\+M\+L}]{\setlength{\rightskip}{0pt plus 5cm}parse\+To\+X\+M\+L (
+\begin{DoxyParamCaption}
+\item[{}]{\$html\+Str}
+\end{DoxyParamCaption}
+)}\label{maps_x_m_l_8php_aa4f830cf26f0fa9084374e6eec2cfc90}
+
+
+Helper function that correctly encodes special characters for proper X\+M\+L parsing. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em html\+Str} & -\/ special H\+T\+M\+L character \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+xml\+Str correctly formatted string 
+\end{DoxyReturn}
+A\+D\+D T\+O X\+M\+L D\+O\+C\+U\+M\+E\+N\+T N\+O\+D\+E 
+
+\subsection{Variable Documentation}
+\hypertarget{maps_x_m_l_8php_a896b241ebd6b7f381e7919ff0d1eb8fd}{}\index{maps\+X\+M\+L.\+php@{maps\+X\+M\+L.\+php}!while@{while}}
+\index{while@{while}!maps\+X\+M\+L.\+php@{maps\+X\+M\+L.\+php}}
+\subsubsection[{while}]{\setlength{\rightskip}{0pt plus 5cm}while(\$row=@mysql\+\_\+fetch\+\_\+assoc(\$result))}\label{maps_x_m_l_8php_a896b241ebd6b7f381e7919ff0d1eb8fd}
+
+
+Start X\+M\+L file, echo parent node. 
+
+Iterate through the rows, printing X\+M\+L nodes for each\+End X\+M\+L file 

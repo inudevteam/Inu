@@ -1,6 +1,13 @@
-// Global Variables
+/**
+   * Inu - scripts.js
+   * @author InuDevTeam
+   * @date 12/8/2014
+   * @brief Initializes google maps with database and location data.  Displays controls for searching and marker legend.
+   * @file scripts.js
+   */
 
-//Custom markers based on data types - FUNC006
+/// Global Variables
+/// Custom markers based on data types - FUNC006
 var customIcons = {
   park: {
     icon: '../img/park.png',
@@ -28,8 +35,10 @@ var customIcons = {
   }
 };
 
-
+/// google maps object
 var map;
+
+/// display options for rendering map
 var initOpts = {
   center: {
     lat: 40.006711,
@@ -106,53 +115,56 @@ var initOpts = {
   zoom: 12
 };
 
-
-// Called on site intial load
+/// Initializes google maps and populates markers from database
 function initialize() {
   map = new google.maps.Map(document.getElementById('map-canvas'), initOpts);
 
-  var infoWindow = new google.maps.InfoWindow;
+    var infoWindow = new google.maps.InfoWindow;
 
-  // populate locations from database using XML
-  downloadUrl("../php / mapsXML.php", function (data) {
-    var xml = data.responseXML;
-    var markers = xml.documentElement.getElementsByTagName("marker");
-    for (var i = 0; i < markers.length; i++) {
-      var name = markers[i].getAttribute("name");
-      var address = markers[i].getAttribute("address");
-      var type = markers[i].getAttribute("type");
-      var point = new google.maps.LatLng(
-        parseFloat(markers[i].getAttribute("lat")),
-        parseFloat(markers[i].getAttribute("lng")));
-      var html = "<b>" + name + "</b><br/>" + address;
-      var icon = customIcons[type] || {};
-      var places = new google.maps.Marker({
-        map: map,
-        position: point,
-        icon: icon.icon
+      /**
+       * @brief populates locations from database by parsing XML data
+       * @param url - url to file that generates XML data.
+       * @param callback - function that is called when XML data is returned to Javascript
+       */
+      downloadUrl("../php/mapsXML.php", function(data) {
+        var xml = data.responseXML;
+        var markers = xml.documentElement.getElementsByTagName("marker");
+        for (var i = 0; i < markers.length; i++) {
+          var name = markers[i].getAttribute("name");
+          var address = markers[i].getAttribute("address");
+          var type = markers[i].getAttribute("type");
+          var point = new google.maps.LatLng(
+              parseFloat(markers[i].getAttribute("lat")),
+              parseFloat(markers[i].getAttribute("lng")));
+          var html = "<b>" + name + "</b><br/>" + address;
+          var icon = customIcons[type] || {};
+          var places = new google.maps.Marker({
+            map: map,
+            position: point,
+            icon: icon.icon
+          });
+          bindInfoWindow(places, map, infoWindow, html);
+        }
       });
-      bindInfoWindow(places, map, infoWindow, html);
-    }
-  });
 
-  // FUNC006: Add legend
-  var legend = document.getElementById('legend');
-  for (var key in customIcons) {
-    var type = customIcons[key];
-    var name = type.name;
-    var icon = type.icon;
-    var div = document.createElement('div');
-    div.innerHTML = '<img src="' + icon + '"> ' + name;
-    legend.appendChild(div);
-  }
+/// FUNC006: Adds a legend for recognizing different datatypes displayed on map
+var legend = document.getElementById('legend');
+for (var key in customIcons) {
+  var type = customIcons[key];
+  var name = type.name;
+  var icon = type.icon;
+  var div = document.createElement('div');
+  div.innerHTML = '<img src="' + icon + '"> ' + name;
+  legend.appendChild(div);
+}
 
-  map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(document.getElementById('legend'));
+/// Renders legend ontop of map
+map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(
+  document.getElementById('legend'));
 
-  // Pre-function requirement: find user's location using HTML5 and handle error
-
-  // Try HTML5 geolocation
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function (position) {
+  /// Pre-function requirement: find user's location using HTML5 and handle error
+  if(navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
       var pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
       var image = '../img/myloc.png';
       var marker = new google.maps.Marker({
@@ -169,11 +181,11 @@ function initialize() {
       handleNoGeolocation(true);
     });
   } else {
-    // Browser doesn't support Geolocation
+    /// Browser doesn't support Geolocation
     handleNoGeolocation(false);
   }
 
-  // Handle HTML5 Geolocation failure
+  /// Handle HTML5 Geolocation failure
   function handleNoGeolocation(errorFlag) {
     if (errorFlag) {
       var content = 'Error: The Geolocation service failed.';
@@ -189,21 +201,28 @@ function initialize() {
     map.setCenter(options.position);
   }
 
-  // FUNC001: display search bar and tie to database
+  /// FUNC001: display search bar and tie to database
 
-  // Create the search box and link it to the UI element.
+  /// Create the search box and link it to the UI element.
   var input = document.getElementById('pac-input');
   map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
   var searchBox = new google.maps.places.SearchBox(input);
 
-  // Bias the SearchBox results towards places that are within the bounds of the current map's viewport.
-  google.maps.event.addListener(map, 'bounds_changed', function () {
+  /// Bias the SearchBox results towards places that are within the bounds of the current map's viewport.
+  google.maps.event.addListener(map, 'bounds_changed', function() {
     var bounds = map.getBounds();
     searchBox.setBounds(bounds);
   });
+
 }
 
-// create infowindow from xml and html 
+/**
+* @brief creates infoWindow for displaying data on each location
+* @param marker - marker object
+* @param map - map object
+* @param infoWindow - infoWindow object
+* @param html - constructed html for formatting information
+*/
 function bindInfoWindow(marker, map, infoWindow, html) {
   google.maps.event.addListener(marker, 'click', function () {
     infoWindow.setContent(html);
@@ -227,10 +246,7 @@ function downloadUrl(url, callback) {
   request.send(null);
 }
 
-function doNothing() {}
-
-// NONF001: return map center and zoom to inital values (should be a FUNC requirement, but left for consistency with GitHub)
-
+/// NONF001: return map center and zoom to inital values (should be a FUNC requirement, but left for consistency with GitHub)
 function loadWithInitOpts() {
   map.setCenter(initOpts.center);
   map.setZoom(initOpts.zoom);
@@ -238,15 +254,14 @@ function loadWithInitOpts() {
 
 google.maps.event.addDomListener(window, 'load', initialize);
 
-// FUNC002: Animate scrolling between sections
-
-//jQuery for page scrolling feature - requires jQuery Easing plugin
-$(function () {
-  $('a.page-scroll').bind('click', function (event) {
-    var $anchor = $(this);
-    $('html, body').stop().animate({
-      scrollTop: $($anchor.attr('href')).offset().top
-    }, 1500, 'easeInOutExpo');
-    event.preventDefault();
-  });
+/// FUNC002: Animate scrolling between sections
+/// jQuery for page scrolling feature - requires jQuery Easing plugin
+$(function() {
+    $('a.page-scroll').bind('click', function(event) {
+        var $anchor = $(this);
+        $('html, body').stop().animate({
+            scrollTop: $($anchor.attr('href')).offset().top
+        }, 1500, 'easeInOutExpo');
+        event.preventDefault();
+    });
 });
