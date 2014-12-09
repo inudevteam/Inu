@@ -24,7 +24,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 	<title>
     Inu - Man and His Best Friend, Together
 	</title>
-    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="../../../../img/favicon.ico" type="image/x-icon" />
 	<?php
 		//echo $this->Html->meta('icon');
 
