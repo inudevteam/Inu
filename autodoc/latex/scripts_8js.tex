@@ -1,0 +1,165 @@
+\hypertarget{scripts_8js}{}\section{/\+Users/\+Bruce/\+Documents/\+Computer Science/\+Inu/js/scripts.js File Reference}
+\label{scripts_8js}\index{/\+Users/\+Bruce/\+Documents/\+Computer Science/\+Inu/js/scripts.\+js@{/\+Users/\+Bruce/\+Documents/\+Computer Science/\+Inu/js/scripts.\+js}}
+
+
+Initializes google maps with database and location data. Displays controls for searching and marker legend.  
+
+
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+function \hyperlink{scripts_8js_a54823e4368c273a5cb9a2a66f284b65d}{initialize} ()
+\begin{DoxyCompactList}\small\item\em Initializes google maps and populates markers from database. \end{DoxyCompactList}\item 
+function \hyperlink{scripts_8js_a8f0c1794101c004258d1cb4229ac1616}{bind\+Info\+Window} (marker, \hyperlink{scripts_8js_a48e18769649a3ca5bab0fafdec44cb15}{map}, info\+Window, html)
+\begin{DoxyCompactList}\small\item\em creates info\+Window for displaying data on each location \end{DoxyCompactList}\item 
+\hypertarget{scripts_8js_abd0d38f9d1caed5441b8bfe3829f2a2d}{}function {\bfseries download\+Url} (url, callback)\label{scripts_8js_abd0d38f9d1caed5441b8bfe3829f2a2d}
+
+\item 
+\hypertarget{scripts_8js_a9da6f81dc9aa8fd550c5b3fbfe3e0672}{}function {\bfseries do\+Nothing} ()\label{scripts_8js_a9da6f81dc9aa8fd550c5b3fbfe3e0672}
+
+\item 
+\hypertarget{scripts_8js_ac5a00c942f585ea06b8b4fdb2d2634b4}{}function \hyperlink{scripts_8js_ac5a00c942f585ea06b8b4fdb2d2634b4}{load\+With\+Init\+Opts} ()\label{scripts_8js_ac5a00c942f585ea06b8b4fdb2d2634b4}
+
+\begin{DoxyCompactList}\small\item\em N\+O\+N\+F001\+: return map center and zoom to inital values (should be a F\+U\+N\+C requirement, but left for consistency with Git\+Hub) \end{DoxyCompactList}\item 
+\hypertarget{scripts_8js_a8a7ceb9e082eed5e8f6f936b679692e9}{}google maps event {\bfseries add\+Dom\+Listener} (window, \textquotesingle{}load\textquotesingle{}, \hyperlink{scripts_8js_a54823e4368c273a5cb9a2a66f284b65d}{initialize})\label{scripts_8js_a8a7ceb9e082eed5e8f6f936b679692e9}
+
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+var \hyperlink{scripts_8js_ad19d0e79a6029a8ea1005ced789b63fc}{custom\+Icons}
+\item 
+\hypertarget{scripts_8js_a48e18769649a3ca5bab0fafdec44cb15}{}var \hyperlink{scripts_8js_a48e18769649a3ca5bab0fafdec44cb15}{map}\label{scripts_8js_a48e18769649a3ca5bab0fafdec44cb15}
+
+\begin{DoxyCompactList}\small\item\em google maps object \end{DoxyCompactList}\item 
+var \hyperlink{scripts_8js_aa15aaf7c97ff22c9ad6917cfa830877a}{init\+Opts}
+\begin{DoxyCompactList}\small\item\em display options for rendering map \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Initializes google maps with database and location data. Displays controls for searching and marker legend. 
+
+Inu -\/ \hyperlink{scripts_8js}{scripts.\+js} \begin{DoxyAuthor}{Author}
+Inu\+Dev\+Team 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+12/8/2014 
+\end{DoxyDate}
+
+
+\subsection{Function Documentation}
+\hypertarget{scripts_8js_a8f0c1794101c004258d1cb4229ac1616}{}\index{scripts.\+js@{scripts.\+js}!bind\+Info\+Window@{bind\+Info\+Window}}
+\index{bind\+Info\+Window@{bind\+Info\+Window}!scripts.\+js@{scripts.\+js}}
+\subsubsection[{bind\+Info\+Window}]{\setlength{\rightskip}{0pt plus 5cm}function bind\+Info\+Window (
+\begin{DoxyParamCaption}
+\item[{}]{marker, }
+\item[{}]{map, }
+\item[{}]{info\+Window, }
+\item[{}]{html}
+\end{DoxyParamCaption}
+)}\label{scripts_8js_a8f0c1794101c004258d1cb4229ac1616}
+
+
+creates info\+Window for displaying data on each location 
+
+
+\begin{DoxyParams}{Parameters}
+{\em marker} & -\/ marker object \\
+\hline
+{\em map} & -\/ map object \\
+\hline
+{\em info\+Window} & -\/ info\+Window object \\
+\hline
+{\em html} & -\/ constructed html for formatting information \\
+\hline
+\end{DoxyParams}
+\hypertarget{scripts_8js_a54823e4368c273a5cb9a2a66f284b65d}{}\index{scripts.\+js@{scripts.\+js}!initialize@{initialize}}
+\index{initialize@{initialize}!scripts.\+js@{scripts.\+js}}
+\subsubsection[{initialize}]{\setlength{\rightskip}{0pt plus 5cm}function initialize (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{scripts_8js_a54823e4368c273a5cb9a2a66f284b65d}
+
+
+Initializes google maps and populates markers from database. 
+
+populates locations from database by parsing X\+M\+L data 
+\begin{DoxyParams}{Parameters}
+{\em url} & -\/ url to file that generates X\+M\+L data. \\
+\hline
+{\em callback} & -\/ function that is called when X\+M\+L data is returned to Javascript\\
+\hline
+\end{DoxyParams}
+F\+U\+N\+C006\+: Adds a legend for recognizing different datatypes displayed on map
+
+Renders legend ontop of map
+
+Pre-\/function requirement\+: find user\textquotesingle{}s location using H\+T\+M\+L5 and handle error
+
+Browser doesn\textquotesingle{}t support Geolocation
+
+Handle H\+T\+M\+L5 Geolocation failure
+
+F\+U\+N\+C001\+: display search bar and tie to database
+
+Create the search box and link it to the U\+I element.
+
+Bias the Search\+Box results towards places that are within the bounds of the current map\textquotesingle{}s viewport. 
+
+\subsection{Variable Documentation}
+\hypertarget{scripts_8js_ad19d0e79a6029a8ea1005ced789b63fc}{}\index{scripts.\+js@{scripts.\+js}!custom\+Icons@{custom\+Icons}}
+\index{custom\+Icons@{custom\+Icons}!scripts.\+js@{scripts.\+js}}
+\subsubsection[{custom\+Icons}]{\setlength{\rightskip}{0pt plus 5cm}var custom\+Icons}\label{scripts_8js_ad19d0e79a6029a8ea1005ced789b63fc}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+= \{
+    park: \{
+    icon: \textcolor{stringliteral}{'../img/park.png'},
+    name: \textcolor{stringliteral}{'Dog Parks'}
+      \},
+    restaurant: \{
+    icon: \textcolor{stringliteral}{'../img/restaurant.png'},
+    name: \textcolor{stringliteral}{'Restaurants'}
+      \},
+    trail: \{
+    icon: \textcolor{stringliteral}{'../img/trail.png'},
+    name: \textcolor{stringliteral}{'Trails'}
+      \},
+    store: \{
+    icon: \textcolor{stringliteral}{'../img/store.png'},
+    name: \textcolor{stringliteral}{'Stores'}
+      \},
+    vet: \{
+    icon: \textcolor{stringliteral}{'../img/vet.png'},
+    name: \textcolor{stringliteral}{'Veterinarians'}
+      \},
+    hotel: \{
+    icon: \textcolor{stringliteral}{'../img/hotel.png'},
+    name: \textcolor{stringliteral}{'Hotels'}
+      \}
+    \}
+\end{DoxyCode}
+Global Variables Custom markers based on data types -\/ F\+U\+N\+C006 \hypertarget{scripts_8js_aa15aaf7c97ff22c9ad6917cfa830877a}{}\index{scripts.\+js@{scripts.\+js}!init\+Opts@{init\+Opts}}
+\index{init\+Opts@{init\+Opts}!scripts.\+js@{scripts.\+js}}
+\subsubsection[{init\+Opts}]{\setlength{\rightskip}{0pt plus 5cm}var init\+Opts}\label{scripts_8js_aa15aaf7c97ff22c9ad6917cfa830877a}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+= \{
+    center: \{ lat: 40.006711, lng: -105.263623\},
+    mapTypeId: \textcolor{stringliteral}{'roadmap'},
+    styles: [\{featureType:\textcolor{stringliteral}{"administrative"},stylers:[\{visibility:\textcolor{stringliteral}{"off"}\}]\},\{featureType:\textcolor{stringliteral}{"poi"},stylers:[\{
+      visibility:\textcolor{stringliteral}{"simplified"}\}]\},\{featureType:\textcolor{stringliteral}{"road"},elementType:\textcolor{stringliteral}{"labels"},stylers:[\{visibility:\textcolor{stringliteral}{"simplified"}\}]\},\{
+      featureType:\textcolor{stringliteral}{"water"},stylers:[\{visibility:\textcolor{stringliteral}{"simplified"}\}]\},\{featureType:\textcolor{stringliteral}{"transit"},stylers:[\{visibility:\textcolor{stringliteral}{"simplified"}\}]
+      \},\{featureType:\textcolor{stringliteral}{"landscape"},stylers:[\{visibility:\textcolor{stringliteral}{"simplified"}\}]\},\{featureType:\textcolor{stringliteral}{"road.highway"},stylers:[\{
+      visibility:\textcolor{stringliteral}{"off"}\}]\},\{featureType:\textcolor{stringliteral}{"road.local"},stylers:[\{visibility:\textcolor{stringliteral}{"on"}\}]\},\{featureType:\textcolor{stringliteral}{"road.highway"},elementType
+      :\textcolor{stringliteral}{"geometry"},stylers:[\{visibility:\textcolor{stringliteral}{"on"}\}]\},\{featureType:\textcolor{stringliteral}{"water"},stylers:[\{color:\textcolor{stringliteral}{"#84afa3"}\},\{lightness:52\}]\},\{
+      stylers:[\{saturation:-17\},\{gamma:0.36\}]\},\{featureType:\textcolor{stringliteral}{"transit.line"},elementType:\textcolor{stringliteral}{"geometry"},stylers:[\{color:\textcolor{stringliteral}{"
+      #3f518c"}\}]\}],
+    zoom: 12
+\}
+\end{DoxyCode}
+
+
+display options for rendering map 
+
